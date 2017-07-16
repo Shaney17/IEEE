@@ -4,7 +4,7 @@ var bodyParser  = require('body-parser');
 
 //CONTROLLER
 router.get("/:id", (req, res) => {
-  res.render("index.html", {id: req.params.id});
+  res.render("editor.html", {id: req.params.id});
 });
 
 router.post("/:id/save", (req, res) => {
