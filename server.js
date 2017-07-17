@@ -59,5 +59,5 @@ const   editorController    = require("./routes/editor/editor-controller.js"),
         editorSocket        = require("./routes/editor/editor-socket.js")(server)
 
 //CONTROLLER
-app.use("/", indexRoute);
+app.use("/home", indexRoute);
 app.use("/editor", editorController);

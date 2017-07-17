@@ -35,6 +35,6 @@ $(function() {
           }, true);
         })
         .froalaEditor({
-            height: 550
+            height: 500
         })
     });

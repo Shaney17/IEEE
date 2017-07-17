@@ -1,12 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>IEEE</title>
-</head>
-<body>
-    <h1>Hello !!</h1>
-</body>
-</html>
+<% include ./partials/header %>
+
+<div class="container">
+    <header class="jumbotron">
+        <div class="container">
+            <h1>Hệ thống soạn thảo văn bản pháp luật</h1>
+            <p>View our hand-picked campgrounds from all over the world</p>
+        </div>
+    </header>
+
+    <div class="row">
+        <div class="col-md-2">
+            <h1>TL</h1>
+        </div>
+
+        <div class="col-md-10">
+            <div class="row" style="display:flex; flex-wrap:wrap;">
+                <a class="btn btn-primary btn-large" href="/editor/new">Thêm văn bản mới</a>
+                <% documents.forEach(function(doc){ %>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="thumbnail">
+                                <div class="caption">
+                                    <h4><a href="/editor/<%= doc._id %>" style="text-decoration: none"> <%= doc.name %> </a></h4>
+                                </div>
+                        </div> 
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+    
+    
+</div>
+
+<% include ./partials/footer %>

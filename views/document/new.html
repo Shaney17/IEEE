@@ -1,0 +1,22 @@
+<% include ./docPartials/docHeader %>
+
+<!--The Editor-->
+<div class="container">
+  <h2>Soạn thảo văn bản pháp luật</h2>
+
+  <form action="add" method="POST">
+    <div class="row">
+      <div class="col-md-8">
+        <input class="form-control" type="text" name="title" placeholder="Tiêu đề văn bản">
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-primary pull-right">Lưu văn bản</button>
+      </div>
+      
+    </div>  
+    <br><br>
+    <textarea id="froala-editor" name="editor_content"></textarea>
+  </form>
+</div>
+
+<% include ./docPartials/docFooter %>

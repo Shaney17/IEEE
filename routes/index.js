@@ -1,10 +1,26 @@
-var express     = require("express");
-var router      = express.Router();
-var passport    = require("passport");
-var User        = require("../models/user.js");
+const express           = require('express');
+const mongoose          = require('mongoose');
+const router            = express.Router();
+const passport          = require('passport');
+const flash             = require('connect-flash');
+const methodOverride    = require('method-override'); 
+
+const middleware        = require('../middleware/index.js');
+
+const Documents         = require('../models/document.js');
+const User              = require('../models/user.js');
+
 
 router.get("/", function(req, res){
-    res.render("home.html");
+    //Get all the documents from DB
+    Documents.find({}, (err, documents) => {
+        if(err){
+            console.log(err);
+            req.flash("error", err.message);
+        } else {
+            res.render("home.html", {documents: documents, currentUser: req.user});
+        }
+    });
 });
 
 
@@ -39,8 +55,8 @@ router.get("/login", function(req, res){
 // handling login logic
 router.post("/login", passport.authenticate("local", 
     {
-        successRedirect: "/",
-        failureRedirect: "/login",
+        successRedirect: "/home",
+        failureRedirect: "/home/login",
         failureFlash: true
     }), function(req, res){
 });
@@ -50,7 +66,7 @@ router.post("/login", passport.authenticate("local",
 router.get("/logout", function(req, res){
    req.logout();
    req.flash("success", "Logged out !");
-   res.redirect("/");
+   res.redirect("/home");
 });
 
 
