@@ -2,20 +2,24 @@
 
 <div class="container">
     <header class="jumbotron">
-        <div class="container">
-            <h1>Hệ thống soạn thảo văn bản pháp luật</h1>
-            <p>View our hand-picked campgrounds from all over the world</p>
+        <div class="container text-center">
+            <h1>IEEE</h1>
+            <p>Giúp cho công việc của bạn trở nên dễ dàng hơn</p>
+            <a class="btn btn-primary btn-large" href="/editor/new">Thêm văn bản mới</a>
         </div>
     </header>
 
     <div class="row">
         <div class="col-md-2">
-            <h1>TL</h1>
+            <ul>
+                <!-- Chưa hoàn thiện -->
+                <li><a href="#" style="text-decoration: none">Hiển thị danh sách văn bản</a></li>
+                <li><a href="#" style="text-decoration: none">Hiển thị danh sách đối tác</a></li>
+            </ul>
         </div>
 
         <div class="col-md-10">
             <div class="row" style="display:flex; flex-wrap:wrap;">
-                <a class="btn btn-primary btn-large" href="/editor/new">Thêm văn bản mới</a>
                 <% documents.forEach(function(doc){ %>
                     <div class="col-md-3 col-sm-6">
                         <div class="thumbnail">

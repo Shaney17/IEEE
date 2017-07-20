@@ -32,7 +32,7 @@ router.post("/add", middleware.isLoggedIn, (req, res) => {
   }
   if(checkEmptyValue){
       req.flash("error", "Vui lòng điền đủ các thông tin");
-      res.redirect("/home");
+      res.redirect("/organization");
   } else {
       // Create a new campground and save to DB
       Documents.create(newDoc, function(err, newlyCreated){
@@ -43,7 +43,7 @@ router.post("/add", middleware.isLoggedIn, (req, res) => {
           } else {
               req.flash("success", "Successfully added Campground !");
               //redirect back to campgrounds page
-              res.redirect("/home");
+              res.redirect("/organization");
           }
       });
   }

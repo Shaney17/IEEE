@@ -30,7 +30,7 @@ middewareObj.isLoggedIn = function(req, res, next) {
         return next();
     }
     req.flash("error", "Xin hãy đăng nhập");
-    res.redirect("/home/login");  
+    res.redirect("/organization/login");  
 };
 
 

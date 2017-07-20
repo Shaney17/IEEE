@@ -18,7 +18,7 @@ router.get("/", function(req, res){
             console.log(err);
             req.flash("error", err.message);
         } else {
-            res.render("home.html", {documents: documents, currentUser: req.user});
+            res.render("organization.html", {documents: documents, currentUser: req.user});
         }
     });
 });
@@ -55,8 +55,8 @@ router.get("/login", function(req, res){
 // handling login logic
 router.post("/login", passport.authenticate("local", 
     {
-        successRedirect: "/home",
-        failureRedirect: "/home/login",
+        successRedirect: "/organization",
+        failureRedirect: "/organization/login",
         failureFlash: true
     }), function(req, res){
 });
@@ -66,7 +66,7 @@ router.post("/login", passport.authenticate("local",
 router.get("/logout", function(req, res){
    req.logout();
    req.flash("success", "Logged out !");
-   res.redirect("/home");
+   res.redirect("/organization");
 });
 
 
